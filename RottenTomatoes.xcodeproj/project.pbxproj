@@ -19,6 +19,10 @@
 		15223F3918889419002B1C22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15223F2118889418002B1C22 /* UIKit.framework */; };
 		15223F4118889419002B1C22 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15223F3F18889419002B1C22 /* InfoPlist.strings */; };
 		15223F4318889419002B1C22 /* RottenTomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15223F4218889419002B1C22 /* RottenTomatoesTests.m */; };
+		15223F56188894A4002B1C22 /* IDZMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 15223F4F188894A4002B1C22 /* IDZMovie.m */; };
+		15223F57188894A4002B1C22 /* IDZMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15223F51188894A4002B1C22 /* IDZMovieCell.m */; };
+		15223F58188894A4002B1C22 /* IDZMovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15223F53188894A4002B1C22 /* IDZMovieListViewController.m */; };
+		15223F59188894A4002B1C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15223F54188894A4002B1C22 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,13 @@
 		15223F3E18889419002B1C22 /* RottenTomatoesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RottenTomatoesTests-Info.plist"; sourceTree = "<group>"; };
 		15223F4018889419002B1C22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15223F4218889419002B1C22 /* RottenTomatoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RottenTomatoesTests.m; sourceTree = "<group>"; };
+		15223F4E188894A4002B1C22 /* IDZMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZMovie.h; sourceTree = "<group>"; };
+		15223F4F188894A4002B1C22 /* IDZMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDZMovie.m; sourceTree = "<group>"; };
+		15223F50188894A4002B1C22 /* IDZMovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZMovieCell.h; sourceTree = "<group>"; };
+		15223F51188894A4002B1C22 /* IDZMovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDZMovieCell.m; sourceTree = "<group>"; };
+		15223F52188894A4002B1C22 /* IDZMovieListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZMovieListViewController.h; sourceTree = "<group>"; };
+		15223F53188894A4002B1C22 /* IDZMovieListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDZMovieListViewController.m; sourceTree = "<group>"; };
+		15223F54188894A4002B1C22 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +118,10 @@
 		15223F2318889418002B1C22 /* RottenTomatoes */ = {
 			isa = PBXGroup;
 			children = (
+				15223F5C188894B8002B1C22 /* Views */,
+				15223F5B188894B3002B1C22 /* Models */,
+				15223F5A188894AC002B1C22 /* Controllers */,
+				15223F54188894A4002B1C22 /* Main.storyboard */,
 				15223F2C18889418002B1C22 /* IDZAppDelegate.h */,
 				15223F2D18889418002B1C22 /* IDZAppDelegate.m */,
 				15223F2F18889418002B1C22 /* Images.xcassets */,
@@ -142,6 +157,33 @@
 				15223F3F18889419002B1C22 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15223F5A188894AC002B1C22 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				15223F52188894A4002B1C22 /* IDZMovieListViewController.h */,
+				15223F53188894A4002B1C22 /* IDZMovieListViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		15223F5B188894B3002B1C22 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15223F4E188894A4002B1C22 /* IDZMovie.h */,
+				15223F4F188894A4002B1C22 /* IDZMovie.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		15223F5C188894B8002B1C22 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				15223F50188894A4002B1C22 /* IDZMovieCell.h */,
+				15223F51188894A4002B1C22 /* IDZMovieCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15223F59188894A4002B1C22 /* Main.storyboard in Resources */,
 				15223F2818889418002B1C22 /* InfoPlist.strings in Resources */,
 				15223F3018889418002B1C22 /* Images.xcassets in Resources */,
 			);
@@ -240,7 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15223F57188894A4002B1C22 /* IDZMovieCell.m in Sources */,
+				15223F56188894A4002B1C22 /* IDZMovie.m in Sources */,
 				15223F2E18889418002B1C22 /* IDZAppDelegate.m in Sources */,
+				15223F58188894A4002B1C22 /* IDZMovieListViewController.m in Sources */,
 				15223F2A18889418002B1C22 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

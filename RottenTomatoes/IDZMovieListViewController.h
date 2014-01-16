@@ -1,5 +1,5 @@
 //
-//  IDZAppDelegate.h
+//  IDZMovieListViewController.h
 //  Rotten Tomatoes
 //
 //  Created by Anthony Powles on 15/01/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IDZAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface IDZMovieListViewController : UITableViewController
 
 @end
