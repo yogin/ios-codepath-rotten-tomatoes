@@ -10,6 +10,7 @@
 #import "IDZMovie.h"
 #import "IDZMovieCell.h"
 #import "IDZMovieDetailViewController.h"
+#import <UIImageView+AFNetworking.h>
 
 @interface IDZMovieListViewController ()
 
@@ -95,23 +96,7 @@
 	cell.titleLabel.text = movie.title;
 	cell.synopsisLabel.text = movie.synopsis;
 	cell.castLabel.text = movie.castText;
-
-	if (movie.thumbImage) {
-		cell.thumbImage.image = movie.thumbImage;
-	}
-	else {
-		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH,  0ul);
-
-		dispatch_async(queue, ^{
-			NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:movie.thumbUrl]];
-
-			dispatch_sync(dispatch_get_main_queue(), ^{
-				[movie setThumbImage:[UIImage imageWithData:data]];
-				cell.thumbImage.image = movie.thumbImage;
-				[cell setNeedsLayout];
-			});
-		});
-	}
+	[cell.thumbImage setImageWithURL:[NSURL URLWithString:movie.thumbUrl]];
 
     return cell;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "IDZMovieDetailViewController.h"
+#import <UIImageView+AFNetworking.h>
 
 @interface IDZMovieDetailViewController ()
 
@@ -45,24 +46,7 @@
 	self.title = self.movie.title;
 	self.summaryLabel.text = self.movie.synopsis;
 	self.castLabel.text = self.movie.castText;
-
-	if (self.movie.posterImage) {
-		self.backgroundImage.image = self.movie.posterImage;
-	}
-	else {
-		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH,  0ul);
-
-		dispatch_async(queue, ^{
-			NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.movie.posterUrl]];
-
-			dispatch_sync(dispatch_get_main_queue(), ^{
-				[self.movie setPosterImage:[UIImage imageWithData:data]];
-				self.backgroundImage.image = self.movie.posterImage;
-				[self.view setNeedsLayout];
-			});
-		});
-	}
-
+	[self.backgroundImage setImageWithURL:[NSURL URLWithString:self.movie.posterUrl]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,13 +54,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-//- (void)setMovie:(IDZMovie *)movie
-//{
-//	NSLog(@"%@", movie);
-//	self.backgroundImage.image = movie.thumbImage;
-//	[self.view setNeedsLayout];
-//}
 
 - (IBAction)onClose:(id)sender {
 	[self.navigationController popViewControllerAnimated:YES];
