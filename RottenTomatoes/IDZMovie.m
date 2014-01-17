@@ -23,8 +23,7 @@
 
 	if (self) {
 		self.movie = movie;
-		NSLog(@"movie: %@", self.movie);
-	
+
 		[self setTitle:self.movie[@"title"]];
 		[self setSynopsis:self.movie[@"synopsis"]];
 		[self setThumbUrl:self.movie[@"posters"][@"profile"]];

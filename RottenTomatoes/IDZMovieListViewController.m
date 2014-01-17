@@ -12,6 +12,7 @@
 #import "IDZMovieDetailViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import "MBProgressHUD.h"
+#import "Toast+UIView.h"
 
 @interface IDZMovieListViewController ()
 
@@ -65,13 +66,21 @@
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 	
 	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-		NSDictionary *movies = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-		
-		for (NSDictionary *movie in movies[@"movies"]) {
-			[self.movies addObject:[[IDZMovie alloc] initWithDictionary:movie]];
+		if (connectionError) {
+			[self.view makeToast:@"Failed connecting to server"
+						duration:3.0
+						position:@"top"];
 		}
+		else {
+			NSDictionary *movies = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 		
-		[self.tableView reloadData];
+			for (NSDictionary *movie in movies[@"movies"]) {
+				[self.movies addObject:[[IDZMovie alloc] initWithDictionary:movie]];
+			}
+		
+			[self.tableView reloadData];
+		}
+
 		[self.hud hide:YES];
 		[self.refreshControl endRefreshing];
 	}];
