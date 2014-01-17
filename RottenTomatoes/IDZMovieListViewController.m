@@ -19,6 +19,8 @@
 @property (strong, nonatomic) MBProgressHUD *hud;
 
 - (void)setup;
+- (void)fetchData;
+- (void)onRefresh:(id)sender forState:(UIControlState)state;
 
 @end
 
@@ -42,13 +44,15 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
 	[self setup];
 }
 
 - (void)setup
 {
 	self.movies = [[NSMutableArray alloc] init];
+	self.refreshControl = [[UIRefreshControl alloc] init];
+	[self.refreshControl addTarget:self action:@selector(onRefresh:forState:) forControlEvents:UIControlEventValueChanged];
 
 	[self fetchData];
 }
@@ -69,7 +73,15 @@
 		
 		[self.tableView reloadData];
 		[self.hud hide:YES];
+		[self.refreshControl endRefreshing];
 	}];
+}
+
+- (void)onRefresh:(id)sender forState:(UIControlState)state
+{
+    [self.movies removeAllObjects];
+    [self.tableView reloadData];
+    [self fetchData];
 }
 
 #pragma mark - Table view data source
