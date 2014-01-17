@@ -11,10 +11,12 @@
 #import "IDZMovieCell.h"
 #import "IDZMovieDetailViewController.h"
 #import <UIImageView+AFNetworking.h>
+#import "MBProgressHUD.h"
 
 @interface IDZMovieListViewController ()
 
 @property (strong, nonatomic) NSMutableArray *movies;
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 - (void)setup;
 
@@ -26,7 +28,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-		[self setup];
     }
     return self;
 }
@@ -35,7 +36,6 @@
 {
 	self = [super initWithCoder:aDecoder];
     if (self) {
-		[self setup];
     }
     return self;
 }
@@ -43,12 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	[self setup];
 }
 
 - (void)setup
@@ -60,6 +55,8 @@
 
 - (void)fetchData
 {
+	self.hud = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
+
 	NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 	
@@ -71,6 +68,7 @@
 		}
 		
 		[self.tableView reloadData];
+		[self.hud hide:YES];
 	}];
 }
 
