@@ -23,6 +23,7 @@
 		15223F57188894A4002B1C22 /* IDZMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15223F51188894A4002B1C22 /* IDZMovieCell.m */; };
 		15223F58188894A4002B1C22 /* IDZMovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15223F53188894A4002B1C22 /* IDZMovieListViewController.m */; };
 		15223F59188894A4002B1C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15223F54188894A4002B1C22 /* Main.storyboard */; };
+		15223F5F188899C4002B1C22 /* IDZMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15223F5E188899C4002B1C22 /* IDZMovieDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		15223F52188894A4002B1C22 /* IDZMovieListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZMovieListViewController.h; sourceTree = "<group>"; };
 		15223F53188894A4002B1C22 /* IDZMovieListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDZMovieListViewController.m; sourceTree = "<group>"; };
 		15223F54188894A4002B1C22 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		15223F5D188899C4002B1C22 /* IDZMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZMovieDetailViewController.h; sourceTree = "<group>"; };
+		15223F5E188899C4002B1C22 /* IDZMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDZMovieDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 			children = (
 				15223F52188894A4002B1C22 /* IDZMovieListViewController.h */,
 				15223F53188894A4002B1C22 /* IDZMovieListViewController.m */,
+				15223F5D188899C4002B1C22 /* IDZMovieDetailViewController.h */,
+				15223F5E188899C4002B1C22 /* IDZMovieDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -234,6 +239,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Anthony Powles";
 				TargetAttributes = {
+					15223F1918889418002B1C22 = {
+						DevelopmentTeam = 72BG2G2SR5;
+					};
 					15223F3418889419002B1C22 = {
 						TestTargetID = 15223F1918889418002B1C22;
 					};
@@ -287,6 +295,7 @@
 				15223F56188894A4002B1C22 /* IDZMovie.m in Sources */,
 				15223F2E18889418002B1C22 /* IDZAppDelegate.m in Sources */,
 				15223F58188894A4002B1C22 /* IDZMovieListViewController.m in Sources */,
+				15223F5F188899C4002B1C22 /* IDZMovieDetailViewController.m in Sources */,
 				15223F2A18889418002B1C22 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,10 +415,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RottenTomatoes/RottenTomatoes-Prefix.pch";
 				INFOPLIST_FILE = "RottenTomatoes/RottenTomatoes-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -419,10 +431,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RottenTomatoes/RottenTomatoes-Prefix.pch";
 				INFOPLIST_FILE = "RottenTomatoes/RottenTomatoes-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -488,6 +503,7 @@
 				15223F4818889419002B1C22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15223F4918889419002B1C22 /* Build configuration list for PBXNativeTarget "RottenTomatoesTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +512,7 @@
 				15223F4B18889419002B1C22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

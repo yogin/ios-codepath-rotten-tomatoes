@@ -9,10 +9,11 @@
 #import "IDZMovieListViewController.h"
 #import "IDZMovie.h"
 #import "IDZMovieCell.h"
+#import "IDZMovieDetailViewController.h"
 
 @interface IDZMovieListViewController ()
 
-@property NSMutableArray *movies;
+@property (strong, nonatomic) NSMutableArray *movies;
 
 - (void)setup;
 
@@ -97,7 +98,10 @@
 	cell.synopsisLabel.text = movie.synopsis;
 	cell.castLabel.text = movie.castText;
 
-	if (!movie.thumbImage) {
+	if (movie.thumbImage) {
+		cell.thumbImage.image = movie.thumbImage;
+	}
+	else {
 		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH,  0ul);
 
 		dispatch_async(queue, ^{
@@ -153,16 +157,21 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
+	if ([[segue identifier] isEqualToString:@"DetailSegue"]) {
+		IDZMovieDetailViewController *detailController = [segue destinationViewController];
 
- */
+		NSIndexPath *indexPath = [self.tableView indexPathForCell:(IDZMovieCell *)sender];
+		IDZMovie *movie = self.movies[indexPath.row];
+
+		[detailController setMovie:movie];
+	}
+
+}
 
 @end
