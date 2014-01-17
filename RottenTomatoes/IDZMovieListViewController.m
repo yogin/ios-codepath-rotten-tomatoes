@@ -73,7 +73,9 @@
 		}
 		else {
 			NSDictionary *movies = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-		
+
+			[self.movies removeAllObjects];
+
 			for (NSDictionary *movie in movies[@"movies"]) {
 				[self.movies addObject:[[IDZMovie alloc] initWithDictionary:movie]];
 			}
@@ -88,8 +90,6 @@
 
 - (void)onRefresh:(id)sender forState:(UIControlState)state
 {
-    [self.movies removeAllObjects];
-    [self.tableView reloadData];
     [self fetchData];
 }
 
@@ -133,7 +133,6 @@
 
 		[detailController setMovie:movie];
 	}
-
 }
 
 @end

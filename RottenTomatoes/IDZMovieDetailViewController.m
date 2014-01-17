@@ -55,7 +55,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onClose:(id)sender {
+- (IBAction)onClose:(id)sender
+{
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
