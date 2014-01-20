@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hq9-Qw-G80">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hq9-Qw-G80">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -72,8 +72,8 @@
             <objects>
                 <viewController id="gvt-tI-H0J" customClass="IDZMovieDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0YV-68-V1t"/>
-                        <viewControllerLayoutGuide type="bottom" id="3J2-w8-fYP"/>
+                        <viewControllerLayoutGuide type="top" id="0Ul-6A-TWw"/>
+                        <viewControllerLayoutGuide type="bottom" id="5rJ-hP-9pp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8aL-RY-tvl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -83,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="63" width="320" height="505"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abm-sA-RPI">
+                            <view alpha="0.79999999999999982" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abm-sA-RPI">
                                 <rect key="frame" x="0.0" y="320" width="320" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -116,9 +116,15 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="248" id="KB7-kL-G8b"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="abm-sA-RPI" secondAttribute="bottom" id="dBa-sb-EkK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Movie Title" id="bY1-Xj-GtW">
                         <barButtonItem key="rightBarButtonItem" title="Close" id="ctg-y2-V2a">
