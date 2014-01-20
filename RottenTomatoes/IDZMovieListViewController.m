@@ -53,7 +53,9 @@
 {
 	self.movies = [[NSMutableArray alloc] init];
 	self.refreshControl = [[UIRefreshControl alloc] init];
-	[self.refreshControl addTarget:self action:@selector(onRefresh:forState:) forControlEvents:UIControlEventValueChanged];
+	[self.refreshControl addTarget:self
+							action:@selector(onRefresh:forState:)
+				  forControlEvents:UIControlEventValueChanged];
 
 	[self fetchData];
 }
@@ -65,7 +67,9 @@
 	NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 	
-	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+	[NSURLConnection sendAsynchronousRequest:request
+									   queue:[NSOperationQueue mainQueue]
+						   completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 		if (connectionError) {
 			[self.view makeToast:@"Failed connecting to server"
 						duration:3.0
@@ -110,7 +114,7 @@
     static NSString *CellIdentifier = @"IDZMovieCell";
     IDZMovieCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-	IDZMovie *movie = self.movies[[indexPath row]];
+	IDZMovie *movie = self.movies[indexPath.row];
 	
 	cell.titleLabel.text = movie.title;
 	cell.synopsisLabel.text = movie.synopsis;
