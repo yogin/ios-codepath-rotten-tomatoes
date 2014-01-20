@@ -1,5 +1,8 @@
-CodePath's iOS Bootcamp - Rotten Tomatoes
-=========================================
+CodePath's iOS Bootcamp
+=======================
+
+Assignment: Rotten Tomatoes
+---------------------------
 
 User Stories:
 
