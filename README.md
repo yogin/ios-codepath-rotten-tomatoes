@@ -12,3 +12,7 @@ User Stories:
  * User sees error message when there's a networking error. You may not use UIAlertView to display the error. 
  * User can pull to refresh the movie list.
 
+Issues:
+
+ * Detail view is best viewed on 4" screens. Still need to figure out auto-layout.
+
